@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marcar consulta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .formulario-box {
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid #8ff3f6;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #8ff3f6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #7ae8eb;
+        }
+
+        .mensagem-sucesso {
+            display: none;
+            text-align: center;
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mensagem-sucesso h2 {
+            color: #28a745;
+        }
+
+        .mensagem-sucesso p {
+            color: #155724;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="formulario-box" id="formulario-container">
+        <h1>Marque a sua consulta</h1>
+        <form id="formulario-consulta">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="especialidade">Especialidade:</label>
+            <select id="especialidade" name="especialidade" required>
+                <option value="">Selecione uma especialidade</option>
+                <option value="CG">Clínica Geral</option>
+                <option value="CD">Cardiologia</option>
+                <option value="RD">Radiologia</option>
+                <option value="OT">Oftalmologia</option>
+                <option value="PS">Psicologia</option>
+            </select>
+            
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+            
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="">Selecione um estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <div class="mensagem-sucesso" id="mensagem-sucesso">
+        <h2>✓ Consulta Marcada com Sucesso!</h2>
+        <p>Sua consulta foi agendada com sucesso.</p>
+        <p>Os detalhes e confirmação serão enviados para o email informado.</p>
+        <p>Obrigado por escolher a Clínica Vida Plena!</p>
+    </div>
+
+    <script>
+        document.getElementById('formulario-consulta').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            document.getElementById('formulario-container').style.display = 'none';
+            
+            document.getElementById('mensagem-sucesso').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
